@@ -1,2 +1,3 @@
 # XamlColors
- Windows tool to visualize the colors
+## A Windows tool to visualize the colors
+Auto-saving settings on app closing

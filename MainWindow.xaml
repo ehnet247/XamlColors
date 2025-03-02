@@ -1,0 +1,16 @@
+﻿<Window x:Class="XamlColors.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XamlColors"
+        xmlns:vm="clr-namespace:XamlColors.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Window.DataContext>
+        <vm:XamlColorsViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <local:UserColorControl ColorName="Background"/>
+    </Grid>
+</Window>
