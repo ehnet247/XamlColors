@@ -21,15 +21,15 @@
         </Grid.RowDefinitions>
         
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button>
-                <iconPacks:PackIconBoxIcons Kind="LogosAirbnb" Height="80" Width="80"/>
+            <Button Command="{Binding AddColorCmd}" Height="80" Width="80" BorderThickness="0">
+                <iconPacks:PackIconBoxIcons Kind="RegularPlusCircle" Height="40" Width="40"/>
             </Button>
         </StackPanel>
         
         <ListView Grid.Row="1" ItemsSource="{Binding Colors}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    
+                    <local:ColorUserControl ColorName="{Binding Name}" Color="{Binding Color}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

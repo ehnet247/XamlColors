@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using XamlColors.Model;
 
 namespace XamlColors.ViewModel
@@ -15,6 +17,7 @@ namespace XamlColors.ViewModel
     {
         public ObservableCollection<ColorModel> Colors { get; set; }
         public XamlColorsAppSettings AppSettings { get; set; }
+        public ICommand AddColorCmd { get; set; }
 
         public const string SettingsFileName = "XamlColorsAppSettings.json";
 
@@ -22,7 +25,15 @@ namespace XamlColors.ViewModel
         public XamlColorsViewModel()
         {
             ReadSettingsAsync();
+            AddColorCmd = new RelayCommand(AddColor);
+            Colors = new ObservableCollection<ColorModel>();
             
+        }
+
+        private void AddColor()
+        {
+            Colors.Add(new ColorModel());
+            OnPropertyChanged(nameof(Colors));
         }
 
         private async Task ReadSettingsAsync()
