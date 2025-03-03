@@ -5,12 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XamlColors"
         xmlns:vm="clr-namespace:XamlColors.ViewModel"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Window.DataContext>
         <vm:XamlColorsViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+    </Window.Resources>
     <Grid>
-        <local:UserColorControl ColorName="Background"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/> <!-- 0: Menu-->
+            <RowDefinition/> <!-- 1: UserColorControls ListView-->
+            <RowDefinition/> <!-- 2: Statusbar-->
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button>
+                <iconPacks:PackIconBoxIcons Kind="LogosAirbnb" Height="80" Width="80"/>
+            </Button>
+        </StackPanel>
+        
+        <ListView Grid.Row="1" ItemsSource="{Binding Colors}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StatusBar Grid.Row="2"/>
     </Grid>
 </Window>

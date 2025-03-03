@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace XamlColors.ViewModel
 {
     public class XamlColorsViewModel : ObservableRecipient, ICloseableViewModel
     {
+        public ObservableCollection<ColorModel> Colors { get; set; }
         public XamlColorsAppSettings AppSettings { get; set; }
 
         public const string SettingsFileName = "XamlColorsAppSettings.json";

@@ -17,15 +17,15 @@ using System.Windows.Shapes;
 namespace XamlColors
 {
     /// <summary>
-    /// Interaction logic for UserColorControl.xaml
+    /// Interaction logic for ColorUserControl.xaml
     /// </summary>
-    public partial class UserColorControl : UserControl
+    public partial class ColorUserControl : UserControl
     {
         public static readonly DependencyProperty ColorNameProperty =
-            DependencyProperty.Register(nameof(ColorName), typeof(string), typeof(UserColorControl),
+            DependencyProperty.Register(nameof(ColorName), typeof(string), typeof(ColorUserControl),
                 new PropertyMetadata(ColorNameChangedCallback));
         public static readonly DependencyProperty ColorProperty =
-            DependencyProperty.Register(nameof(Color), typeof(string), typeof(UserColorControl),
+            DependencyProperty.Register(nameof(Color), typeof(string), typeof(ColorUserControl),
                 new PropertyMetadata(ColorChangedCallback));
         public Brush ColorBrush
         {
@@ -64,7 +64,7 @@ namespace XamlColors
                 tbName.Text = value;
             }
         }
-        public UserColorControl()
+        public ColorUserControl()
         {
             InitializeComponent();
         }
@@ -87,7 +87,7 @@ namespace XamlColors
 
         private static void ColorNameChangedCallback(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            var userColorControl = sender as UserColorControl;
+            var userColorControl = sender as ColorUserControl;
             if (userColorControl != null)
             {
                 userColorControl.OnColorNameChanged(e);
@@ -96,7 +96,7 @@ namespace XamlColors
 
         private static void ColorChangedCallback(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            var userColorControl = sender as UserColorControl;
+            var userColorControl = sender as ColorUserControl;
             if (userColorControl != null)
             {
                 userColorControl.OnColorChanged(e);
